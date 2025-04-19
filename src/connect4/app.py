@@ -26,7 +26,13 @@ class App:
                 self._ui.print_wrong_input("Value cannot be empty")
                 value = self._ui.read_line()
 
-            state = [[1, 0, 0], [0, 1, 1]]
+            state = [
+                [" ", "+", "#", " ", " "],
+                [" ", "+", "#", " ", " "],
+                [" ", "+", "#", "#", " "],
+                [" ", " ", "#", "#", " "],
+                [" ", " ", "#", "#", " "],
+            ]
             self._ui.print_state(state)
 
             self._ui.print_winner(player_id)
@@ -57,8 +63,22 @@ class UI:
     def read_line(self) -> str:
         return self._read_user_prompt()
 
-    def print_state(self, state: t.Any):
-        self._write(str(state))
+    def print_state(self, state: list[list[str]]):
+        top_horizontal_line = "\u005f" * (len(state[0]) * 2 + 1)
+        bottom_horizontal_line = "\u203e" * (len(state[0]) * 2 + 1)
+
+        for yidx, line in enumerate(state):
+            if yidx == 0:
+                self._write(top_horizontal_line)
+            fmt_line = ""
+            for xidx, rune in enumerate(line):
+                if xidx == 0:
+                    fmt_line += "|"
+                fmt_line += rune + "|"
+
+            self._write(fmt_line)
+            if yidx == len(state) - 1:
+                self._write(bottom_horizontal_line)
 
     def print_winner(self, player_id: int) -> None:
         self._write(f"Winner is Player {player_id}")
