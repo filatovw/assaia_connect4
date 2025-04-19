@@ -152,7 +152,6 @@ class Game:
 
         last_player_id = None
         for _ in range(seq_len):
-            self._logger.info("SEQ NUM %s", i)
             if last_player_id and last_player_id != arena[i][j]:
                 # last player is different from the current player in a sequence. Stopping
                 return False

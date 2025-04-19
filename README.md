@@ -25,3 +25,47 @@
 Способ осуществления нового хода.
 
 Время выполнения – 1:30 (максимум 1:45).
+
+
+## Helping commands
+
+    make help
+    Application: connect4
+
+    Run command:
+    make <target>
+
+    install         install core dependencies
+    install/test    install testing/linting dependencies
+    install/dev     install testing and debugging tools
+    lint            execute linter
+    lint/fix        execute linter and apply propsed fixes
+    fmt             apply formatter
+    test            run tests
+    typecheck       check typing annotations
+    app/run         run the application
+    app/help        show the application help
+    clean           delete trash files
+
+    help            this message
+
+## Application CLI interface
+
+    make app/help
+    uv run connect4 -h
+    usage: connect4 [-h] [--players-number PLAYERS_NUMBER] [--width WIDTH] [--height HEIGHT] [--sequence-length SEQUENCE_LENGTH] [--log-level LOG_LEVEL]
+
+    options:
+    -h, --help            show this help message and exit
+    --players-number, -n PLAYERS_NUMBER
+                            Number of players
+    --width WIDTH         Width of the arena
+    --height HEIGHT       Height of the arena
+    --sequence-length, -s SEQUENCE_LENGTH
+                            Length of a continuous sequence to win
+    --log-level, -l LOG_LEVEL
+                            Application log level
+
+## Running the app
+
+    make install && make app/run

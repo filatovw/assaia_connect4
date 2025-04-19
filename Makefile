@@ -41,10 +41,15 @@ test:
 typecheck:
 	uv run mypy .
 
-## run: - run the application
-.PHONY: run
-run:
+## app/run - run the application
+.PHONY: app/run
+app/run:
 	uv run ${APP}
+
+## app/help - show the application help
+.PHONY: app/help
+app/help:
+	uv run ${APP} -h
 
 ## clean - delete trash files
 .PHONY: clean
