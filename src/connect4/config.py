@@ -2,7 +2,6 @@ import logging
 import math
 import argparse
 from connect4 import models
-from connect4.engine import MAX_PLAYERS
 
 
 def get_config() -> models.Config:
@@ -12,13 +11,13 @@ def get_config() -> models.Config:
         "-n",
         type=int,
         default=2,
-        help=f"Number of players: [2: {MAX_PLAYERS}",
+        help="Number of players",
     )
     ref_width = parser.add_argument(
-        "--width", type=int, default=8, help="Width of the arena"
+        "--width", type=int, default=6, help="Width of the arena"
     )
     ref_height = parser.add_argument(
-        "--height", type=int, default=8, help="Height of the arena"
+        "--height", type=int, default=7, help="Height of the arena"
     )
     ref_sequence_length = parser.add_argument(
         "--sequence-length",
@@ -39,10 +38,6 @@ def get_config() -> models.Config:
     if parsed.players_number < 2:
         raise argparse.ArgumentError(
             ref_players_number_field, "Too few players for a game to start"
-        )
-    if parsed.players_number > MAX_PLAYERS:
-        raise argparse.ArgumentError(
-            ref_players_number_field, "Too many players for a game to start"
         )
 
     if parsed.width < 5:

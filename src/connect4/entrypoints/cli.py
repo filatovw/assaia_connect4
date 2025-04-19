@@ -9,6 +9,13 @@ def main():
     config = get_config()
     logger = get_logger("CONNECT4", config.app.log_level)
     user_interface = ui.CLI(logger, sys.stdin, sys.stdout)
+
+    # CLI limitations
+    if user_interface.get_players_limit() < config.game.players_number:
+        raise ValueError(
+            "The number of players cannot exceed {}", user_interface.get_players_limit()
+        )
+
     app = App(logger, config, user_interface)
     try:
         app.run()
