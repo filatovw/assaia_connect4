@@ -1,0 +1,25 @@
+[project]
+name = "assaia-connect4"
+version = "0.1.0"
+description = "Assaia Connect4 challenge"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.scripts]
+connect4 = "connect4.entrypoints.cli:main"
+
+[dependency-groups]
+test = [
+    "mypy>=1.15.0",
+    "pytest>=8.3.5",
+    "pytest-coverage>=0.0",
+    "ruff>=0.11.6",
+]
+dev = [
+    "ipdb>=0.13.13",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
