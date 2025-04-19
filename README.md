@@ -26,6 +26,13 @@
 
 Время выполнения – 1:30 (максимум 1:45).
 
+## Prerequisites
+
+You should have installed these tools:
+
+- Make tool
+- uv
+- Python3.13
 
 ## Helping commands
 
