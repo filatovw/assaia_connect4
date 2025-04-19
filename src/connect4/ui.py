@@ -14,7 +14,7 @@ class AbstractUI(ABC):
     def get_column(self) -> int:
         raise NotImplementedError
 
-    def print_state(self, state: list[list[str]]) -> None:
+    def print_state(self, state: list[list[int]]) -> None:
         raise NotImplementedError
 
     def print_winner(self, player_id: int) -> None:

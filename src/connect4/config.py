@@ -40,10 +40,10 @@ def get_config() -> models.Config:
             ref_players_number_field, "Too few players for a game to start"
         )
 
-    if parsed.width < 5:
+    if parsed.width < 3:
         raise argparse.ArgumentError(ref_width, "Arena should be wider")
 
-    if parsed.height < 5:
+    if parsed.height < 3:
         raise argparse.ArgumentError(ref_height, "Arena should be higher")
 
     if parsed.sequence_length < 1:

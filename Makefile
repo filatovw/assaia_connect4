@@ -35,6 +35,12 @@ fmt:
 test:
 	uv run pytest tests/
 
+
+## typecheck - check typing annotations
+.PHONY: typecheck
+typecheck:
+	uv run mypy .
+
 ## run: - run the application
 .PHONY: run
 run:

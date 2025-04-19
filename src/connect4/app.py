@@ -38,5 +38,6 @@ class App:
             winner = self._engine.get_winner()
             if winner:
                 self._ui.print_winner(winner.number)
+                break
             else:
                 player = self._engine.get_next_player()
